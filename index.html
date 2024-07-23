@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BBC Demo</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Times New Roman', Times, serif
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+
+        .navbar {
+            height: 64px;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            background-color: black;
+            color: white;
+            font-size: 16px;
+        }
+
+        .heading {
+            display: flex;
+            gap: 56px;
+            align-items: center;
+        }
+
+        .title {
+            display: flex;
+            gap: 4px;
+            width: 50px;
+            height: 56px;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .title>span {
+            font-size: 32px;
+            background-color: white;
+            color: black;
+            font-weight: bolder;
+            padding: 2px;
+            border-radius: 3px;
+        }
+
+        .heading>a {
+            text-decoration: none;
+            color: white;
+
+        }
+
+        .nav-item {
+            display: flex;
+            gap: 32px;
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-item>a {
+            text-decoration: none;
+            color: white;
+        }
+
+        .search {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .search>h2 {
+            margin-bottom: 10px;
+            cursor: pointer;
+        }
+
+        .search>input {
+            width: 175px;
+            height: 36px;
+            outline: none;
+            border: 1px solid white;
+            background-color: black;
+            color: white;
+            padding: 8px;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+            margin-left: 72px;
+            margin-right: 72px;
+            gap: 32px;
+        }
+
+        .home-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .home-title {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+
+        .home-items {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(4, 296px);
+            grid-template-rows: repeat(2, 200px);
+            gap: 8px;
+        }
+
+        .main-item {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .item {
+            background-color: aquamarine;
+            padding: 16px;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: left;
+            justify-content: end;
+            background-image: url(https://images.unsplash.com/photo-1624969862644-791f3dc98927?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: initial;
+            color: white;
+            cursor: pointer;
+        }
+
+        .item1 {
+            background-image: url(https://plus.unsplash.com/premium_photo-1670002244351-51860b285f4f?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        }
+
+        .item2 {
+            background-image: url(https://images.unsplash.com/photo-1606323544089-4ee380240779?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        }
+
+        .item3 {
+            background-image: url(https://images.unsplash.com/photo-1718592168437-8382e5b97736?q=80&w=1632&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        }
+
+        .item4 {
+            background-image: url(https://plus.unsplash.com/premium_photo-1663127037157-5710981bc7b7?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+        }
+
+        .item:hover {
+            box-shadow: 0 0 10px 2px lightgray;
+        }
+
+        .news-title::before {
+            content: "";
+            border-left: 3px blueviolet solid;
+            margin-right: 5px;
+        }
+
+        .category {
+            color: gray;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+
+        .category::before {
+            content: "";
+            border-left: 3px blueviolet solid;
+            margin-right: 5px;
+        }
+
+        .country::before {
+            border-color: darkred;
+        }
+
+
+        .news-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .news-item {
+            display: flex;
+            gap: 10px
+        }
+
+        .news {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 296px;
+            height: auto;
+            padding: 10px;
+            box-shadow: 0 0 10px 2px lightgray;
+            border-radius: 6px;
+            gap: 6px;
+            align-items: start;
+            cursor: pointer;
+        }
+
+        .ad-section {
+            border: 1px solid gray;
+            height: 200px;
+            width: 296px;
+            padding: 10px;
+        }
+
+        .news-image {
+            width: 100%;
+            height: 200px;
+        }
+
+        .read-more {
+            color: gray;
+            cursor: pointer;
+        }
+
+        .footer {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: black;
+            color: white
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="heading">
+                <h1 class="title"><span>B</span><span>B</span><span>C</span></h1>
+                <a href="#">Sign in</a>
+            </div>
+            <ul class="nav-item">
+                <a href="#">Home</a>
+                <a href="#">News</a>
+                <a href="#">Sport</a>
+                <a href="#">Reel</a>
+                <a href="#">Worklife</a>
+                <a href="#">Travel</a>
+                <a href="#">Future</a>
+                <a href="#">Culture</a>
+            </ul>
+            <div class="search">
+                <h2>...</h2>
+                <input type="text" placeholder="Search BBC">
+            </div>
+        </nav>
+        <main class="main">
+            <section class="home-section">
+                <div class="home-title">
+                    <h2>Wecome to BBC.com</h2>
+                    <h2>Tuesday Jul 23</h2>
+                </div>
+                <div class="home-items">
+                    <div class="item main-item">
+                        <h2>Zelensky addresses G7 as Russian Missile hit cities</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Temporibus aut dolor in repudiandae.
+                            Beatae facere consequuntur debitis, iste dicta laboriosam dolorem libero quia neque quasi
+                            dignissimos ipsa accusamus in tenetur vitae ad maiores impedit doloremque!</p>
+                        <h3 class="category country">Europe</h3>
+                    </div>
+                    <div class="item item1">
+                        <h2>Pictures provide evidence of russian grain theft</h2>
+                        <h3 class="category">Reality Check</h3>
+                    </div>
+                    <div class="item item2">
+                        <h2>Lamar is died with women's right</h2>
+                        <h3 class="category">Entertainment & Arts</h3>
+                    </div>
+                    <div class="item item3">
+                        <h2>Why negative comment cut so deep</h2>
+                        <h3 class="category">Future</h3>
+                    </div>
+                    <div class="item item4">
+                        <h2>what the new culuter coming to the world</h2>
+                        <h3 class="category">Culture</h3>
+                    </div>
+                </div>
+            </section>
+            <section class="news-section">
+                <div class="">
+                    <h2 class="news-title">News</h2>
+                </div>
+                <div class="news-item">
+                    <div class="news">
+                        <img class="news-image"
+                            src="https://images.unsplash.com/photo-1711365306958-577e114787ae?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="news-image1">
+                        <h2 class="news-heading">Several died in columbian bullfight and collapse</h2>
+                        <p class="news-content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Illum omnis
+                            est quaerat eveniet quo ut consequatur.<span class="read-more">Read more...</span></p>
+                        <h3 class="category">Latin America & Caribean</h3>
+
+                    </div>
+                    <div class="news">
+                        <img class="news-image"
+                            src="https://images.unsplash.com/photo-1676311651686-9d42d06be214?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="news-image1">
+                        <h2 class="news-heading">Youngest south africa tavern victim 13-minister</h2>
+                        <p class="news-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eligendi,
+                            totam. Consequuntur nam deserunt hic velit.<span class="read-more">Read more...</span></p>
+                        <h3 class="category">Africa</h3>
+                    </div>
+                    <div class="news">
+                        <img class="news-image"
+                            src="https://plus.unsplash.com/premium_photo-1664300817181-42e14990e5ed?q=80&w=1471&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="news-image1">
+                        <h2 class="news-heading">Chinese belt and road</h2>
+                        <p class="news-content">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut eaque, iste
+                            dicta nisi et inventore magnam, corrupti officiis dignissimos, aliquid laboriosam blanditiis
+                            fugiat laudantium corporis.<span class="read-more">Read more...</span></p>
+                        <h3 class="category">Asia</h3>
+                    </div>
+                    <div class="ad-section">
+                        <h3>Ad section</h3>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <p>Copyright All Rigts are reserved to BBC.com</p>
+        </footer>
+    </div>
+</body>
+
+</html>
